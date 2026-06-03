@@ -1,0 +1,177 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  ADMIN
+  SELLER
+  BUYER
+}
+
+enum DimensionType {
+  WEIGHT
+  VOLUME
+  COUNT
+}
+
+enum ProductStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum QuotationStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum OrderStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  CANCELLED
+}
+
+model User {
+  id String @id @default(cuid())
+
+  name     String
+  email    String @unique
+  password String
+
+  role Role
+
+  products Product[] @relation("SellerProducts")
+
+  quotations Quotation[] @relation("BuyerQuotations")
+  orders     Order[]     @relation("BuyerOrders")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Product {
+  id String @id @default(cuid())
+
+  name        String
+  sku         String  @unique
+  description String?
+  category    String?
+
+  sellerId String
+  seller   User   @relation("SellerProducts", fields: [sellerId], references: [id])
+
+  status ProductStatus @default(ACTIVE)
+
+  dimensionType DimensionType
+
+  // Internal storage unit:
+  // WEIGHT -> g
+  // VOLUME -> mL
+  // COUNT -> item
+  baseUnit String
+
+  // Total available stock
+  inventoryQuantity Decimal @db.Decimal(30, 10)
+
+  // Reserved by pending quotations/orders
+  reservedQuantity Decimal @default(0) @db.Decimal(30, 10)
+
+  // Price per base unit
+  basePrice Decimal @db.Decimal(30, 10)
+
+  quotationItems QuotationItem[]
+  orderItems     OrderItem[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Quotation {
+  id String @id @default(cuid())
+
+  buyerId String
+  buyer   User   @relation("BuyerQuotations", fields: [buyerId], references: [id])
+
+  status QuotationStatus @default(PENDING)
+
+  totalPrice Decimal @db.Decimal(30, 10)
+
+  items QuotationItem[]
+
+  orders Order[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model QuotationItem {
+  id String @id @default(cuid())
+
+  quotationId String
+  quotation   Quotation @relation(fields: [quotationId], references: [id], onDelete: Cascade)
+
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+
+  // User entered quantity
+  orderedQuantityDisplay Decimal @db.Decimal(30, 10)
+
+  // kg, g, L, mL, item
+  orderedUnit String
+
+  // Converted quantity in base unit
+  orderedQuantityBase Decimal @db.Decimal(30, 10)
+
+  // Product price per base unit
+  unitPriceBase Decimal @db.Decimal(30, 10)
+
+  lineTotal Decimal @db.Decimal(30, 10)
+}
+
+model Order {
+  id String @id @default(cuid())
+
+  buyerId String
+  buyer   User   @relation("BuyerOrders", fields: [buyerId], references: [id])
+
+  quotationId String?
+  quotation   Quotation? @relation(fields: [quotationId], references: [id])
+
+  status OrderStatus @default(PENDING)
+
+  totalPrice Decimal @db.Decimal(30, 10)
+
+  items OrderItem[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model OrderItem {
+  id String @id @default(cuid())
+
+  orderId String
+  order   Order  @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  productId String
+  product   Product @relation(fields: [productId], references: [id])
+
+  // User entered quantity
+  orderedQuantityDisplay Decimal @db.Decimal(30, 10)
+
+  // kg, g, L, mL, item
+  orderedUnit String
+
+  // Converted quantity in base unit
+  orderedQuantityBase Decimal @db.Decimal(30, 10)
+
+  // Price per base unit
+  unitPriceBase Decimal @db.Decimal(30, 10)
+
+  lineTotal Decimal @db.Decimal(30, 10)
+}
