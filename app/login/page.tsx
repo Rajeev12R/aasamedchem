@@ -49,7 +49,7 @@ export default function LoginPage() {
 
       <div className="w-full max-w-md bg-slate-950/60 border border-slate-800/80 p-8 rounded-2xl shadow-xl backdrop-blur-md relative z-10 flex flex-col gap-6">
         <div className="text-center">
-          <h1 className="text-3xl font-black bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-indigo-400 tracking-wide">
+          <h1 className="text-3xl font-black bg-clip-text text-transparent bg-linear-to-r from-blue-400 to-indigo-400 tracking-wide">
             AasaMedChem
           </h1>
           <p className="text-sm text-slate-400 mt-2 font-light">
