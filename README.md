@@ -18,7 +18,7 @@ An inventory, quotation, and order management portal built for chemical manufact
 
 ### 1. Clone & Install
 ```bash
-git clone <repository-url>
+git clone https://github.com/Rajeev12R/aasamedchem.git
 cd aasamedchem
 npm install
 ```
