@@ -4,24 +4,6 @@ An inventory, quotation, and order management portal built for chemical manufact
 
 ---
 
-<!-- SCREENSHOTS OF THE APPLICATION -->
-<div align="center">
-  <img width="800" style="border-radius: 8px; margin-bottom: 10px;" alt="Landing Page" src="https://github.com/user-attachments/assets/da70eb0c-7f8e-4502-8705-b7014012f41d" />  <br />
-  <img width="800" style="border-radius: 8px; margin-bottom: 10px;" alt="Login Portal" src="https://github.com/user-attachments/assets/e5143109-ad1e-411d-b24b-1fc3e0b3514b" />  <br />
-  <img width="800" style="border-radius: 8px; margin-bottom: 10px;" alt="Admin Dashboard" src="https://github.com/user-attachments/assets/2062af92-fd31-469b-bc5c-be09018a2bdb" />  <br />
-  <img width="800" style="border-radius: 8px; margin-bottom: 10px;" alt="Inventory List" src="https://github.com/user-attachments/assets/a54439ad-7838-4b25-a6c1-54a68c946dff" />  <br />
-  <img width="800" style="border-radius: 8px; margin-bottom: 10px;" alt="Create Product" src="https://github.com/user-attachments/assets/59aefc72-d2df-4719-9d30-e7cbdf9a2c3b" />  <br />
-  <img width="800" style="border-radius: 8px; margin-bottom: 10px;" alt="Buyer Home" src="https://github.com/user-attachments/assets/d62f991f-972d-4231-a071-8172be7b5fb6" />  <br />
-  <img width="800" style="border-radius: 8px; margin-bottom: 10px;" alt="Chemical Catalog & Cart" src="https://github.com/user-attachments/assets/e6419de2-b5ab-441f-a0ea-9818888a9db9" />  <br />
-  <img width="800" style="border-radius: 8px; margin-bottom: 10px;" alt="Buyer Quotations" src="https://github.com/user-attachments/assets/a70a7356-6c1d-4863-9835-2c5667949b37" />  <br />
-  <img width="800" style="border-radius: 8px; margin-bottom: 10px;" alt="Admin Quotations Review" src="https://github.com/user-attachments/assets/83a672ee-0e76-4e42-8bc2-7fad3838cf61" />  <br />
-  <img width="800" style="border-radius: 8px; margin-bottom: 10px;" alt="Admin Orders" src="https://github.com/user-attachments/assets/2f2c3603-5d7f-4e59-a17a-4caebc2cc0b9" />  <br />
-  <img width="800" style="border-radius: 8px; margin-bottom: 10px;" alt="Buyer Orders" src="https://github.com/user-attachments/assets/76272bcc-6484-4d3e-827e-29ab1b6993ac" />  <br />
-  <img width="800" style="border-radius: 8px; margin-bottom: 10px;" alt="Seller Dashboard" src="https://github.com/user-attachments/assets/d3be09aa-4ef3-4f00-803d-affe1a254edf" />
-</div>
-
----
-
 ## 🛠️ Quick Start & Local Setup
 
 ### 1. Clone & Install
@@ -109,3 +91,23 @@ Here are the features implemented, in chronological order:
 * Redesigned landing page with dark-mode hero graphics.
 * Created a glassmorphism login interface.
 * Expanded `prisma/seed.ts` with mock chemicals, pending quotes, and active orders for instant verification.
+
+---
+
+<!-- SCREENSHOTS OF THE APPLICATION -->
+<div align="center">
+  <img width="800" style="border-radius: 8px; margin-bottom: 10px;" alt="Landing Page" src="https://github.com/user-attachments/assets/da70eb0c-7f8e-4502-8705-b7014012f41d" />  <br />
+  <img width="800" style="border-radius: 8px; margin-bottom: 10px;" alt="Login Portal" src="https://github.com/user-attachments/assets/e5143109-ad1e-411d-b24b-1fc3e0b3514b" />  <br />
+  <img width="800" style="border-radius: 8px; margin-bottom: 10px;" alt="Admin Dashboard" src="https://github.com/user-attachments/assets/2062af92-fd31-469b-bc5c-be09018a2bdb" />  <br />
+  <img width="800" style="border-radius: 8px; margin-bottom: 10px;" alt="Inventory List" src="https://github.com/user-attachments/assets/a54439ad-7838-4b25-a6c1-54a68c946dff" />  <br />
+  <img width="800" style="border-radius: 8px; margin-bottom: 10px;" alt="Create Product" src="https://github.com/user-attachments/assets/59aefc72-d2df-4719-9d30-e7cbdf9a2c3b" />  <br />
+  <img width="800" style="border-radius: 8px; margin-bottom: 10px;" alt="Buyer Home" src="https://github.com/user-attachments/assets/d62f991f-972d-4231-a071-8172be7b5fb6" />  <br />
+  <img width="800" style="border-radius: 8px; margin-bottom: 10px;" alt="Chemical Catalog & Cart" src="https://github.com/user-attachments/assets/e6419de2-b5ab-441f-a0ea-9818888a9db9" />  <br />
+  <img width="800" style="border-radius: 8px; margin-bottom: 10px;" alt="Buyer Quotations" src="https://github.com/user-attachments/assets/a70a7356-6c1d-4863-9835-2c5667949b37" />  <br />
+  <img width="800" style="border-radius: 8px; margin-bottom: 10px;" alt="Admin Quotations Review" src="https://github.com/user-attachments/assets/83a672ee-0e76-4e42-8bc2-7fad3838cf61" />  <br />
+  <img width="800" style="border-radius: 8px; margin-bottom: 10px;" alt="Admin Orders" src="https://github.com/user-attachments/assets/2f2c3603-5d7f-4e59-a17a-4caebc2cc0b9" />  <br />
+  <img width="800" style="border-radius: 8px; margin-bottom: 10px;" alt="Buyer Orders" src="https://github.com/user-attachments/assets/76272bcc-6484-4d3e-827e-29ab1b6993ac" />  <br />
+  <img width="800" style="border-radius: 8px; margin-bottom: 10px;" alt="Seller Dashboard" src="https://github.com/user-attachments/assets/d3be09aa-4ef3-4f00-803d-affe1a254edf" />
+</div>
+
+---
