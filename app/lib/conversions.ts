@@ -1,26 +1,43 @@
 import Decimal from "decimal.js";
 
-export const UNIT_CONVERSIONS = {
-  g: new Decimal(1),
-  kg: new Decimal(1000),
+export const UNITS = {
+  WEIGHT: {
+    g: new Decimal(1),
+    kg: new Decimal(1000),
+  },
 
-  mL: new Decimal(1),
-  L: new Decimal(1000),
+  VOLUME: {
+    mL: new Decimal(1),
+    L: new Decimal(1000),
+  },
 
-  item: new Decimal(1),
+  COUNT: {
+    item: new Decimal(1),
+  },
 } as const;
 
-export type Unit =
-  | "g"
-  | "kg"
-  | "mL"
-  | "L"
-  | "item";
+export type DimensionType =
+  | "WEIGHT"
+  | "VOLUME"
+  | "COUNT";
 
 export function convertToBaseUnit(
   quantity: string | number,
-  unit: Unit
-): Decimal {
-  return new Decimal(quantity)
-    .mul(UNIT_CONVERSIONS[unit]);
+  unit: string,
+  dimension: DimensionType
+) {
+  const conversionMap = UNITS[dimension];
+
+  const factor =
+    conversionMap[
+      unit as keyof typeof conversionMap
+    ];
+
+  if (!factor) {
+    throw new Error(
+      `Invalid unit ${unit} for ${dimension}`
+    );
+  }
+
+  return new Decimal(quantity).mul(factor);
 }

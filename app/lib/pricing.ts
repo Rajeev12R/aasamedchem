@@ -1,13 +1,14 @@
 import Decimal from "decimal.js";
-import { convertToBaseUnit, Unit } from "./conversions";
+import { convertToBaseUnit, DimensionType } from "./conversions";
 
 export function calculatePrice(
   quantity: string,
-  unit: Unit,
+  unit: string,
+  dimension: DimensionType,
   basePrice: string
 ) {
   const baseQuantity =
-    convertToBaseUnit(quantity, unit);
+    convertToBaseUnit(quantity, unit, dimension);
 
   const totalPrice =
     baseQuantity.mul(

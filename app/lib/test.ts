@@ -3,6 +3,7 @@ import { calculatePrice } from "./pricing";
 const result = calculatePrice(
   "2.567891",
   "L",
+  "VOLUME",
   "0.375"
 );
 
